@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           drugsearchJump 搜索引擎快捷跳转
+// @name           DrugsearchJump药研搜索
 // @author         Drugx.cn,菜芽君(修改)
 // @description    方便药物研发人员更加高效的检索药物研发相关文献、资料、数据
 // @version        1.0.0
@@ -20,7 +20,6 @@
 // @match          *://*.cnki.net/*
 // @match          *://*.deepl.com/*
 // @match          *://*.dict.cn/*
-// @match          *://*.docin.com/*
 // @match          *://*.douban.com/*
 // @match          *://*.github.com/*
 // @match          *://*.qq.com/*
@@ -39,7 +38,6 @@
 // @match          *://*.wanfangdata.com.cn/*
 // @match          *://*.weibo.com/*
 // @match          *://*.wikipedia.org/*
-// @include        *://*.yahoo.tld/*
 // @match          *://*.yandex.com/*
 // @match          *://*.youdao.com/*
 // @match          *://*.youtube.com/*
@@ -66,7 +64,7 @@
 (function () {
     'use strict';
 
-    console.log("脚本: 搜索引擎快捷跳转 --- 开始执行 --- 发布者: qxin --- GitHub:https://github.com/qxinGitHub/searchEngineJump ← 问题反馈地址")
+    console.log("脚本: 搜索引擎快捷跳转 --- 开始执行 --- 发布者:菜芽君 --- GitHub:https://github.com/caiyajunx/drugsearchJump ← 问题反馈地址")
     function iqxinstart(){
         // 根据规则把搜索引擎列表插入到指定网站
         var rules = [
@@ -196,53 +194,6 @@
                     keyword: '//input[@name="q"]',
                     target: 'css;.results--main',
                     where: 'beforeBegin',
-                },
-            },
-            {name:"雅虎网页搜索",
-                url:/^https?:\/\/search\.yahoo\.com\/search/i,
-                engineList:"web",
-                enabled:true,
-                fixedTop:54,
-                style:"\
-                    margin-left:122px;\
-                ",
-                insertIntoDoc:{
-                    keyword:'css;#yschsp',
-                    target:'css;#horizontal-bar',
-                    where:'afterBegin',
-                },
-            },
-            {name:"雅虎日本网页搜索",
-                url:/^https?:\/\/search\.yahoo\.co\.jp\/search/i,
-                engineList:"web",
-                enabled:true,
-                style:"\
-                    margin-left:0px;\
-                    width:1050px;\
-                    display:flex;\
-                    -webkit-box-orient: vertical;\
-                    -webkit-box-direction: normal;\
-                    margin: auto;\
-                ",
-                insertIntoDoc:{
-                    keyword:'//input[@name="p"]',
-                    target:'css;.Header__inner',
-                    where:'afterEnd',
-                },
-            },
-            {name:"台湾雅虎网页搜索",
-                url:/^https?:\/\/tw\.search\.yahoo\.com\/search/i,
-                engineList:"web",
-                enabled:true,
-                fixedTop:52,
-                style:"\
-                    margin-left:-10px;\
-                    margin-bottom:10px;\
-                ",
-                insertIntoDoc:{
-                    keyword:'css;#yschsp',
-                    target:'css;#results',
-                    where:'afterBegin',
                 },
             },
             {name:"searx",
@@ -381,7 +332,7 @@
             },
             {name: "f搜",
                 enabled: true,
-                url: /^https?:\/\/fsofso\.com\/search/,
+                url: /^https?:\/\/fsoufsou\.com\/search/,
                 engineList: 'web',
                 style: '\
                     margin-left: 50px;\
@@ -626,38 +577,6 @@
 
 
             // 视频网站
-            {name: "优酷",
-                url: /^https?:\/\/www\.soku\.com\/search_video\//,
-                engineList: "video",
-                enabled: true,
-                fixedTop:54,
-                style: "\
-                    width:1190px;\
-                    margin:0 auto;\
-                    z-index:99999;\
-                ",
-                insertIntoDoc: {
-                    keyword: 'css;#headq',
-                    target: 'css;.sk_container',
-                    where: 'beforeBegin',
-                },
-            },
-            {name: "土豆",
-                url: /^https?:\/\/www\.soku\.com\/t\/nisearch\//,
-                enabled: true,
-                engineList: "video",
-                style: "\
-                    padding-left: 10px;\
-                    border-top: 1px solid #FC6500;\
-                    border-bottom: 1px solid #FC6500;\
-                    text-align: center;\
-                ",
-                insertIntoDoc: {
-                    keyword: 'css;#headq',
-                    target: 'css;body > .sk_container',
-                    where: 'beforeBegin',
-                },
-            },
             {name: "哔哩哔哩",
                 url: /^https?:\/\/search\.bilibili\.com\/all/,
                 enabled: true,
@@ -690,22 +609,6 @@
                     where: 'afterEnd',
                 },
             },
-            {name: "AcFun",
-                url: /^https?:\/\/www\.acfun\.cn\/search/,
-                enabled: true,
-                engineList: "video",
-                fixedTop:46,
-                style: "\
-                    width:980px;\
-                    margin: -30px 0 10px 0;\
-                    text-align:center;\
-                ",
-                insertIntoDoc: {
-                    keyword: 'css;#search-text--standalone',
-                    target: 'css;.search__main__container',
-                    where: 'afterEnd',
-                },
-            },
             {name: "YouTube",
                 url: /^https?:\/\/www\.youtube\.com\/results/,
                 enabled: true,
@@ -720,21 +623,6 @@
                 insertIntoDoc: {
                     keyword: 'css;input#search',
                     target: 'css;#page-manager',
-                    where: 'beforeBegin',
-                },
-            },
-            {name: "niconico",
-                url: /^https?:\/\/www\.nicovideo\.jp\/search\//,
-                enabled: true,
-                engineList: "video",
-                style: "\
-                    border-top: 1px solid #E8E8E8;\
-                    border-bottom: 1px solid #E8E8E8;\
-                    text-align: center;\
-                ",
-                insertIntoDoc: {
-                    keyword: 'css;#search_united',
-                    target: 'css;.tagListBox',
                     where: 'beforeBegin',
                 },
             },
@@ -765,21 +653,6 @@
                        where: 'afterEnd',
                     },
             },
-            {name: "樱花动漫",
-                url: /^https?:\/\/www\.imomoe\.ai\/search/,
-                engineList: "video",
-                enabled: true,
-                style: " \
-                    width:1140px;\
-                    margin:-10px auto 10px;,\
-                    ",
-                insertIntoDoc: {
-                    keyword: '//input[@name="searchword"]',
-                    target: 'css;.head',
-                    where: 'afterEnd',
-                },
-            },
-
 
             // 音乐
             {name: "百度音乐",
@@ -1024,31 +897,6 @@
                     where: 'beforeBegin',
                 },
             },
-            {
-                name: 'ED2K',
-                url: /^https?:\/\/www\.ed2000\.com\/filelist\.asp/i,
-                engineList: 'download',
-                enabled: true,
-                insertIntoDoc: {
-                    keyword: 'css;.searchtxt',
-                    target: 'css;.topsearch',
-                    where: 'afterEnd',
-                },
-            },
-            {name: "人人影视",
-                url: /^https?:\/\/www\.zimuzu\.tv\/search\//,
-                engineList: "download",
-                enabled: true,
-                style: '\
-                    border-bottom: 1px solid #00AFFF;\
-                    text-align: center;\
-                    ',
-                insertIntoDoc: {
-                    keyword: '//input[@name="q"]',
-                    target: 'css;.Header',
-                    where: 'afterEnd',
-                },
-            },
             {name: "subHD字幕",
                 url: /^https?:\/\/subhd\.com\/search/i,
                 engineList: "download",
@@ -1253,36 +1101,6 @@
                     where: 'beforeBegin',
                 },
             },
-            {name: "苏宁",
-                url: /^https?:\/\/search\.suning\.com/i,
-                enabled: true,
-                engineList: "shopping",
-                style: "\
-                    border-bottom: 1px solid #E5E5E5;\
-                    border-top: 1px solid #E5E5E5;\
-                    text-align: center;\
-                ",
-                insertIntoDoc: {
-                    keyword: 'css;#searchKeywordsHidden',
-                    target: 'css;.ng-toolbar',
-                    where: 'afterEnd',
-                },
-            },
-            {name: "1号店",
-                url: /^https?:\/\/search\.yhd\.com\/c0-0\/k/i,
-                enabled: true,
-                engineList: "shopping",
-                style: "\
-                    border-bottom: 1px solid #E5E5E5;\
-                    border-top: 1px solid #E5E5E5;\
-                    text-align: center;\
-                ",
-                insertIntoDoc: {
-                    keyword: 'css;#keyword',
-                    target: 'css;#global_top_bar',
-                    where: 'afterEnd',
-                },
-            },
             {name: "什么值得买",
                // http://search.smzdm.com/?c=home&s=%E8%A5%BF%E6%B8%B8%E8%AE%B0
                 url: /^https?:\/\/search\.smzdm\.com\/\?/i,
@@ -1298,37 +1116,6 @@
                     where: 'afterEnd',
                 },
             },
-            {name: "亚马逊",
-            // https://www.amazon.cn/s?k=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91
-             url: /^https?:\/\/www\.amazon\.cn\/s\?k/i,
-             enabled: true,
-             engineList: "shopping",
-             style: "\
-                 margin:2px 0 -10px 0;\
-             ",
-             insertIntoDoc: {
-                 keyword: 'css;#twotabsearchtextbox',
-                 target: 'css;.sg-row',
-                 where: 'afterBegin',
-                },
-            },
-             {name: "1688",
-            // https://s.1688.com/selloffer/offer_search.htm?keywords=%
-             url: /^https?:\/\/s\.1688\.com\/selloffer\/offer_search/i,
-             enabled: true,
-             engineList: "shopping",
-             fixedTop:88,
-             style: "\
-                 margin:6px auto -20px;\
-                 width:1390px;\
-             ",
-             insertIntoDoc: {
-                 keyword: '//input[@name="keywords"]',
-                 target: 'css;.header-container',
-                 where: 'afterEnd',
-                },
-            },
-
 
             //社交
             {name: "新浪微博",
@@ -1614,28 +1401,7 @@
                    where: 'beforeEnd',
                }
             },
-            {
-                name: "抖音搜索",   
-                //https://www.douyin.com/search/
-                url:/^https?:\/\/www\.douyin\.com\/search/,
-                engineList:"web",
-                enabled:true,
-                fixedTop:116,
-                fixedTopColor:"rgb(22 23 34)",
-                style:'\
-                    margin:-10px 0 0 -10px;\
-                    z-index:99999;\
-                   ',
-               insertIntoDoc: {
-                   target: 'css;.CHUUyANc',
-                   // keyword: '//input[@name="search"]',
-                   keyword: function () {
-                    var input = document.querySelector('input[type="text"]');
-                    if (input) return input.value;
-                },
-                   where: 'beforeEnd',
-               }
-            },
+                
             //  用户补充: kidzgy
             //  https://greasyfork.org/zh-CN/scripts/27752/discussions/90497
             {
@@ -1773,18 +1539,6 @@
             favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA9ElEQVR4nO2WTUoDQRBGX5txIMRs/EFBAm49iEfxBN5J8AAeZwwkgmTR6e6ZHsNMDO2iFkEyibqQcVG1+aq74KvXteky9w8p0WMc9dlcARRAARRAARTgXwBk+z5jYyA/3p7zvDv/Ltp2N2/XoilBNj4Rw6sLuDyXwuRa9OxUdDz6ajoc/hwAYLUSrertnV2KmpT6XUiyvzBtGplxjPLksooA+FAB4HzZDdA0a2Ksmb2+4XzJYmFxPlBM51jr8aHCLgPOBQDqd5ntx2ZzECgbDPbWzOPTcyqmM5wvKV7mOw26zA8Z/jbMze2dLqUKoAAKoAC9xic+GmK9S0OJvAAAAABJRU5ErkJggg==',
             disable:true,
         };
-        engineList.web[7] = {
-            name: 'Yandex',
-            url: 'https://yandex.com/search/?text=%s',
-            favicon: 'data:image/ico;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAAAAAAsAAAAUwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAADjBwcEAwcHBAMHBwQDBwcEAAAAAUbq6uurExMT/xMTE/8TExP/ExMT/xMTE/8TExP/ExMT/xMTE/8TExP9ubm6QAAAALcTExADExMQAxMTEAAAAAFrHx8f/x8fH/8fHx/+7u8j/AADS/wAA0v+wsMj/x8fH/8fHx//Hx8f/vr6+7h4eHmQAAAAQx8fHAMfHxwAAAABXy8vL/8vLy//Ly8v/v7/M/wAA2/8AANv/s7PN/8vLy//Ly8v/y8vL/8vLy/+kpKS6AAAAM8vLywDLy8sAAAAAU9DQ0P/Q0ND/0NDQ/8TE0f8AAOX/AADl/7i40v/Q0ND/0NDQ/9DQ0P/Q0ND/0NDQ/2VlZXsAAAAk0NDQAAAAAE/U1NT/1NTU/9TU1P/IyNb/AADw/wAA8P+7u9f/1NTU/9TU1P/U1NT/1NTU/9TU1P/JycnkDw8PUwAAAAcAAABL2dnZ/9nZ2f/Z2dn/np7i/wAA+f8AAPn/goLm/9nZ2f/Z2dn/2dnZ/9nZ2f/Z2dn/2dnZ/6ioqKYAAAAqAAAASOLi4v/i4uL/4uLi/0hI9v8AAP//BQX+/yAg+//f3+L/4uLi/+Li4v/i4uL/4uLi/+Li4v/g4OD7AAAARgAAAETx8fH/8fHx/9jZ8v8LD///HiL+/3h6+P8IDP//lJX3//Hx8f/x8fH/8fHx//Hx8f/x8fH/7+/v+wAAAEIAAABA9vb2//b29v+Ah/v/Ex///3N6+//Z2vf/FiL//ys2/v/r7Pb/9vb2//b29v/29vb/9vb2/8jIyKMAAAAkAAAAPPn5+f/09Pn/NEf+/yA0///Gy/r/+fn5/1hn/f8gNP//jpj8//n5+f/5+fn/+fn5//Dw8OMXFxdBAAAABgAAADj7+/v/tb/8/y5K//9GX///+/v7//v7+/+zvfz/Lkr//zhS///l6Pv/+/v7//v7+/+Tk5NnAAAAGfv7+wAAAAA1/f39/3OM/v85Xf//mqz+//39/f/9/f3/9vf9/0do//85Xf//fpX+//39/f/c3NysAAAAH/39/QD9/f0AAAAAMv7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v+VrP//QWn//0Fp///T3PrtPj4+PgAAAAn+/v4A/v7+AAAAACn39/fi////////////////////////////////////////////////tbW1cgAAABf///8A////AP///wAAAAAVAAAAKAAAAC4AAAAuAAAALgAAAC4AAAAuAAAALgAAAC4AAAAuAAAALgAAABv///8A////AP///wD///8AAA8AAAAHAAAAAwAAAAMAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAMAAAADAAAABwAAAA8AAA==',
-        };
-        engineList.web[8] = {
-            name: 'DDG',
-            url: 'https://duckduckgo.com/?q=%s',
-            favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADiElEQVQ4jXWTfVDTBRjHn+uyi8KAbWz7/TbeNzeUeNkLCljGS3hrspDUsC7vqivz5cI/OtQ7vSxNrpvdkQx0k10M5FYgztECgfOoM7kurs6IFx1ja7xsgMiLAySDffvDtLrs8/fz+T7PH8+X6BFIQymxOGb1WyWy8COH13LL9svCSgtEoTt4RMyj5h/CIRKfSImsMKu4NrOKZ6vZwDafz2Tbajaw9ur1wibzemHj+7Lwo0S06j9yYtgqRX0m216lFDS0FCR3Obcl3/FvFmJCFwt/0Rr0aOPGrVlsuymduVShEljDiCL+3hxCUbWZTLtBwfuqXyeZCThqsTTUj0BrPUZ2psGTE4mxQilmt8twLT/WVaUSXvgsjW8hoseJiOhYUuTpSqWw8YYmPjC6JQ5TtXqsLAYAAMu3fLj9eSk8eQw8OimmXpGjMzfWaU5nv94RvfodkoQ+se6cmm2+tDGqe1Ijxm+HXsd4IIi5+WUAQBDA6MRdePdq4c4Xw12wBlNFifginW0tTxN8Sa9Gh+02qlh7v0ayOJTNh8d4Ev7AMq4P+BAM3g/4rm8KvdVn4H6exWCOHMMaOTqzY1wGJXORDkg5H1ermZYRnQyubCEG9R/Av7CCsnOd+P3eCgCg68YCbnZ0YGyXCLf0AowfjML1PMm8UcHaqVTOO1WjFnWMFMjgyhWjZ48OC3/cPx9YRnD6POArAoZSsfT9k7jTEIHR/THoyZXerVYzLfReQvjRs0qRw7NFBmd+HH4pTMXk6Mhf/jTg4WDGRBjex4f33Th43ojHoEaG7nzJXKWSsdHLwmd2VSmE9h9flMwNaqT4NSca3mudeMCs4xDGj4fgdiUfc1YOJssF8OpkcGTF9FUomIvEIRIb0li7RSX+dqxAjt6NAgxYDA8Dpq116E+JhHdzPJxaKfpyZBjWymFQsPZPkvgWIiLancA9Up7C2K5sivd6XxCh98MS+JYmMDzvxqJ7AN2FctSVKtC9dS18LyWiXh3dZVKK257jPaV98IxPn0oWNpYlCera1cxN/55itLpt2H45A3uvbMObjiy89pMWP7ydioZk0dXyFNZWIuGW/asLoUR8fZLQenod325MlzsuXLVMHnMeRIXrLC67G4OHP8roPZ4hajI9y7YdSOB9+n+FfKw4KmLfSUlEbdPOvJ9dJv3sUnMTZmqM9yypsd+ckHLNm7ghW/8p/Alp3+8i87OHIgAAAABJRU5ErkJggg==',
-            disable:true,
-        };
-
 
         // 视频搜索列表
         engineList.video = [];
