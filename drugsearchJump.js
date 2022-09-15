@@ -754,7 +754,7 @@
                 enabled: true,
                 engineList: "image",
                 fixedTop:95,  //关闭关联联想的情况下
-                // fixedTop:135,  // 
+                // fixedTop:135,  //
                 style: '\
                     margin-left:127px;\
                     ',
@@ -1401,7 +1401,7 @@
                    where: 'beforeEnd',
                }
             },
-                
+
             //  用户补充: kidzgy
             //  https://greasyfork.org/zh-CN/scripts/27752/discussions/90497
             {
@@ -1457,7 +1457,7 @@
                 }
             }
         ];
-        
+
         // 有些图标需要重复使用
         var icon ={};
         icon = {
@@ -2385,7 +2385,7 @@
                 //         getSettingData.engineList["translate"].push(engineList.translate[8])
                 //     }
                 // }
-                // 4.04 更改 b站图标  
+                // 4.04 更改 b站图标
                     // 导致了5.23.7 的严重bug, 致使无法使用。原因是用户已经删除了相关列表, 但是脚本依旧去读取,出现了读取错误。
                 // if(getSettingData.modifySearchItems){
                 //     getSettingData.engineList.video = modifySearchItemsIcon(getSettingData.engineList.video,"http://search.bilibili.com/all?keyword=%s",engineList.video[1].favicon)
@@ -2976,7 +2976,7 @@
             */
         }).cssText;
         document.head.appendChild(globalStyle);
-        
+
         // 工具列表动画
         if(!getSettingData.transtion){
             GM_addStyle(".sej-engine," +
@@ -3024,13 +3024,13 @@
                 // 进入显示
                 mouseEventListener.add('mouseenter', a, function () {
                     clearTimeout(self.hideTimerId);
-                    
+
                     if (self.hidden) {
                         self.showTimerId = setTimeout(function () {
                             self.show();
                         }, self.showDelay);
                     } else {
-                        var style = list.style; 
+                        var style = list.style;
                         style.top = parseInt(list.style.top) -6 +"px";
                         style.zIndex = DropDownList.zIndex ++;
                         style.opacity = 0.96;
@@ -3040,7 +3040,7 @@
                 // 离开隐藏
                 mouseEventListener.add('mouseleave', a, function () {
                     clearTimeout(self.showTimerId);
-                    
+
                     if (!self.hidden) {
                         list.style.top = parseInt(list.style.top)+6 +"px";
                         list.style.opacity = 0.04;
@@ -3052,7 +3052,7 @@
 
                 mouseEventListener.add('mouseenter', list, function () {
                     clearTimeout(self.hideTimerId);
-                    
+
                     var style = list.style;
                     style.zIndex = DropDownList.zIndex ++;
                     style.opacity = 0.96;
@@ -3123,9 +3123,9 @@
         var container = document.createElement('sejspan');
         container.id = 'sej-container';
         container.className = "rwl-exempt";
-        
+
         container.addEventListener('mousedown', mousedownhandler, true);
-        
+
         var aPattern = '<a href="" class="sej-engine" target="$blank$" data-iqxincategory="$category$" encoding="$encoding$" gbk="$gbk$" url="$url$"><img src="$favicon$" class="sej-engine-icon" />$name$</a>';
         var dropLists = [];
         engineList.details.forEach(function (item) {
@@ -3282,10 +3282,10 @@
             }
             container.style.cssText = matchedRule.style;
         };
-                
+
         // 由于与要插入网页的样式无法很好的兼容,更改源网页的样式
         if(matchedRule.stylish){GM_addStyle(matchedRule.stylish);};
-        
+
         //固定搜索栏
         if(getSettingData.fixedTop){
             // 判断是否需要只在向上滚动时显示
@@ -3555,8 +3555,8 @@
                 btnEle.id = "btnEle"
 
                 var btnStr = "<div class='btnEleLayer'>" +
-                            "<span class='feedback' title='在 GreasyFork 进行反馈'><a target='_blank' href='https://greasyfork.org/zh-CN/scripts/27752-searchenginejump'>Greasy Fork</a></span>" +
-                            "<span class='feedback' title='在 Github 进行反馈'><a target='_blank' href='https://github.com/qxinGitHub/searchEngineJump'>GitHub</a></span>" +
+                            "<span class='feedback' title='在 Drugx.cn 进行反馈'><a target='_blank' href='https://drugx.cn/'>Greasy Fork</a></span>" +
+                            "<span class='feedback' title='在 Github 进行反馈'><a target='_blank' href='https://github.com/caiyajunx/drugsearchJump'>GitHub</a></span>" +
                             "<span id='xin-allOpen' title='后台打开该搜索分类的所有网站'>" +
                                 "<label>一键搜索<input id='iqxin-allOpen-item' type='checkbox' name='' " +
                                     allOpen_checked +
@@ -5073,8 +5073,8 @@
                 style.type = 'text/css';
                 style.innerHTML = css;
                 head.appendChild(style);
-                
-                // 关闭设置菜单中的所有动画效果 
+
+                // 关闭设置菜单中的所有动画效果
                 if(!getSettingData.transtion){
                     GM_addStyle("#settingLayer," +
                         "#btnEle span," +
@@ -5262,4 +5262,3 @@
     }
 
 })();
-
