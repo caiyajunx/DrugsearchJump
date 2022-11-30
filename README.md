@@ -3,9 +3,10 @@
 
 #更新历史
 
-1.0.0.0 
+版本：1.0.0.1
+#剔除与药物研相关系低的搜索网站
 
+版本：1.0.0.0 
 #已知问题
 与脚本网页解除限制有冲突，开启后，无法进行跳转。
-
 本脚本修改自[searchEngineJump]([超链接地址](https://github.com/qxinGitHub/searchEngineJump) "searchEngineJump").此类脚本的鼻祖为 NLF 写的 搜索引擎跳转（searchEngineJump）
