@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name           药研搜索beta
+// @name           药研搜索Beta
 // @author         Drugx.cn,菜芽君(修改)
 // @description    让药物研发人员高效检索文献、资料、数据
-// @version        1.0.1
+// @version        1.0.2
 // @created        2022-06-17
-// @lastUpdated    2022-11-30
+// @lastUpdated    2022-12-08
 
 // @namespace      --
 // @homepage       https://github.com/caiyajunx/drugsearchJump
@@ -857,7 +857,7 @@
             blank:true,
         };
         engineList.webpro[3] = {
-            name: '搜T',
+            name: '搜Title',
             url: 'https://www.google.com/search?q=intitle:%s',
             favicon: icon.google,
             blank:true,
