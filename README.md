@@ -2,6 +2,12 @@
 药物研发人员专用的检索脚本，方便药物研发人员更加高效的检索药物研发相关文献、资料、数据
 
 #### 更新历史
+##### 版本：1.0.3
+#修复CDE跳转错误
+
+现有搜索网站预览
+
+![avatar](https://github.com/caiyajunx/drugsearchJump/blob/main/V103-drugsearchJump.jpg)
 
 ##### 版本：1.0.2
 #新增文献检索类网站
