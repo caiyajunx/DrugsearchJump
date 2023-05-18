@@ -2,9 +2,9 @@
 // @name           药研搜索Beta
 // @author         Drugx.cn,菜芽君(修改)
 // @description    让药物研发人员高效检索文献、资料、数据
-// @version        1.0.3
+// @version        1.0.518
 // @created        2022-06-17
-// @lastUpdated    2023-01-10
+// @lastUpdated    2023-05-18
 
 // @namespace      --
 // @homepage       https://github.com/caiyajunx/drugsearchJump
@@ -100,7 +100,7 @@
                         // var input = document.getElementById('lst-ib');
                         // if (input) return input.value;
                     // },
-                    keyword: '//input[@name="q"]',
+                    keyword: '//textarea[@name="q"]',
                     where: 'beforeBegin',
                 },
                 // 修改源网页用来适应跳转栏（可选）
